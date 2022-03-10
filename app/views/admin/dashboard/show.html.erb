@@ -12,15 +12,19 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th>Product</th>
-          <th>Category</th>
+          <th>List Name</th>
+          <th>Total</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th>Total products is equal: <%= @productcount %></th>
-          <th>Total categories is equal: <%= @categorycount %></th>
-        </tr>
+      <tr>
+        <th><%= link_to 'Product List',  [:admin, :products] %></th>
+        <th><%= @productcount %></th>
+      </tr>
+      <tr>
+        <th><%= link_to 'Category List',  [:admin, :categories] %></th>
+        <th><%= @categorycount %></th>
+      </tr>
       </tbody>
     </table>
 
