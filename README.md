@@ -1,3 +1,37 @@
+# Jungle Project
+
+## Setup
+
+1. Run `bundle install` to install dependencies
+
+## command `bin/rake routes`
+
+           Prefix Verb   URI Pattern                   Controller#Action
+             root GET    /                             products#index
+         products GET    /products(.:format)           products#index
+          product GET    /products/:id(.:format)       products#show
+         category GET    /categories/:id(.:format)     categories#show
+    add_item_cart POST   /cart/add_item(.:format)      carts#add_item
+
+remove_item_cart POST /cart/remove_item(.:format) carts#remove_item
+cart GET /cart(.:format) carts#show
+orders POST /orders(.:format) orders#create
+order GET /orders/:id(.:format) orders#show
+admin_root GET /admin(.:format) admin/dashboard#show
+admin_products GET /admin/products(.:format) admin/products#index
+POST /admin/products(.:format) admin/products#create
+new_admin_product GET /admin/products/new(.:format) admin/products#new
+admin_product DELETE /admin/products/:id(.:format) admin/products#destroy
+
+https://dashboard.stripe.com/test/dashboard
+
+Use Credit Card # 4111 1111 1111 1111 for testing success scenarios.
+
+future date 12/22
+any 3 number key 111, 123
+
+///////////////////////////////////////////////////
+
 # Jungle
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
@@ -6,8 +40,8 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 
 1. Make sure that you are runnning Ruby 2.6.6 (`ruby -v`)
 1. Install ImageMagick `brew install imagemagick imagemagick@6 --build-from-source`
-2. Remove Gemfile.lock
-3. Replace Gemfile with version provided [here](https://gist.githubusercontent.com/FrancisBourgouin/831795ae12c4704687a0c2496d91a727/raw/ce8e2104f725f43e56650d404169c7b11c33a5c5/Gemfile)
+1. Remove Gemfile.lock
+1. Replace Gemfile with version provided [here](https://gist.githubusercontent.com/FrancisBourgouin/831795ae12c4704687a0c2496d91a727/raw/ce8e2104f725f43e56650d404169c7b11c33a5c5/Gemfile)
 
 ## Setup
 
@@ -28,6 +62,6 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 
 ## Dependencies
 
-* Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
-* PostgreSQL 9.x
-* Stripe
+- Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
+- PostgreSQL 9.x
+- Stripe
