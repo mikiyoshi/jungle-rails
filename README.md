@@ -4,6 +4,18 @@
 
 1. Run `bundle install` to install dependencies
 
+`bin/rake db:reset` db restart
+
+`bin/rails s -b 0.0.0.0` server start
+
+Bootstrap v3.3.6
+https://getbootstrap.com/docs/3.4/javascript/
+font-awesome-rails-4.5.0.1
+https://fontawesome.com/v4/icon/exclamation-triangle
+
+custom css
+/Users/mikiyoshikokura/Desktop/Sites/light-house-lab/virtualbox/w9/jungle-rails/app/assets/stylesheets/products.scss
+
 ## command `bin/rake routes`
 
            Prefix Verb   URI Pattern                   Controller#Action
