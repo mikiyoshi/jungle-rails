@@ -1,5 +1,5 @@
 class Admin::ProductsController < ApplicationController
-  
+  # Browsers tend to save Basic Auth credentials, Sensitive information is .env
   http_basic_authenticate_with name: "Jungle", password: "book"
 
   def index
