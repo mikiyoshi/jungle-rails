@@ -2,6 +2,7 @@ class Admin::CategoriesController < ApplicationController
   # Browsers tend to save Basic Auth credentials, Sensitive information is .env
   http_basic_authenticate_with name: "Jungle", password: "book"
 
+  # Be careful of "Namespaces" we have same name of "category" and "admin/category"
   def index
     @categories = Category.all
   end
@@ -29,6 +30,7 @@ class Admin::CategoriesController < ApplicationController
   private
 
   def category_params
+    # params all include
     params.require(:category).permit(
       :name
     )
