@@ -42,6 +42,21 @@ Use Credit Card # 4111 1111 1111 1111 for testing success scenarios.
 future date 12/22
 any 3 number key 111, 123
 
+# rspec-rails
+
+https://github.com/rspec/rspec-rails
+
+Gemfile
+
+```
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
+  # ...
+end
+```
+
+`bundle # aka bundle install`
+
 ///////////////////////////////////////////////////
 
 # Jungle
