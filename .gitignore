@@ -57,3 +57,4 @@ bower.json
 .byebug_history
 
 history*.txt
+/spec2

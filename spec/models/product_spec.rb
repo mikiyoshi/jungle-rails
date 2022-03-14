@@ -1,31 +1,39 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do  
+  let(:category) {Category.new(:name => 'DC')}
+  subject {described_class.new(:name => 'Batman', :price => 300, :quantity => 30, :category => category)}  
   describe 'Validations' do
     # validation tests/examples here
-    it 'should not exist for new records' do
-      @product = Product.new
-      expect(@product).not_to be_valid
-      puts @product.errors.inspect
-      # @product.save!
+    it 'saves successfully with all four fields set and belong to a category' do
+      subject.valid?
+      expect(subject.errors).to be_empty
+      assc = described_class.reflect_on_association(:category)
+      expect(assc.macro).to eq :belongs_to
+    end
 
-      # expect(@product.id).to be_present
+    it 'fails to save when name is not set' do
+      subject.name = nil
+      subject.valid?
+      expect(subject.errors).not_to be_empty
+    end
+    
+    it 'fails to save when price is not set' do
+      subject.price_cents = nil
+      subject.valid?
+      expect(subject.errors).not_to be_empty
+    end
+
+    it 'fails to save when quantity is not set' do
+      subject.quantity = nil
+      subject.valid?
+      expect(subject.errors).not_to be_empty
+    end
+
+    it 'fails to save when category is not set' do
+      subject.category = nil
+      subject.valid?
+      expect(subject.errors).not_to be_empty
     end
   end
 end
-
-# describe '#id' do
-#   it 'should not exist for new records' do
-#     @widget = Widget.new
-#     expect(@widget.id).to be_nil
-#   end
-
-#   it 'should be auto-assigned by AR for saved records' do
-#     @widget = Widget.new
-#     # we use bang here b/c we want our spec to fail if save fails (due to validations)
-#     # we are not testing for successful save so we have to assume it will be successful
-#     @widget.save!
-
-#     expect(@widget.id).to be_present
-#   end
-# end
