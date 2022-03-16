@@ -1,10 +1,6 @@
 require 'rails_helper'
 
 RSpec.feature "AddToCarts", type: :feature, js: true do
-  # pending "add some scenarios (or delete) #{__FILE__}"
-  # https://thoughtbot.com/upcase/test-driven-rails-resources/capybara.pdf
-  # http://cheatrags.com/capybara
-  # https://github.com/DatabaseCleaner/database_cleaner#rspec-with-capybara-example
   before :each do
     @category = Category.create! name: 'Apparel'
   

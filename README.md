@@ -1,94 +1,96 @@
 # Jungle Project
 
-## Setup
+This is a e-commerce application based on Rails. User can shopping as a member, administrator managed items and category.
 
-1. Run `bundle install` to install dependencies
+## Products
 
-`bin/rake db:reset` db restart
+### PC screen capture
 
-`bin/rails s -b 0.0.0.0` server start
+![PC](/docs/pc.png)
 
-Bootstrap v3.3.6
-https://getbootstrap.com/docs/3.4/javascript/
-font-awesome-rails-4.5.0.1
-https://fontawesome.com/v4/icon/exclamation-triangle
+### Mobile screen capture
 
-custom css
-/Users/mikiyoshikokura/Desktop/Sites/light-house-lab/virtualbox/w9/jungle-rails/app/assets/stylesheets/products.scss
-
-## command `bin/rake routes`
-
-           Prefix Verb   URI Pattern                   Controller#Action
-             root GET    /                             products#index
-         products GET    /products(.:format)           products#index
-          product GET    /products/:id(.:format)       products#show
-         category GET    /categories/:id(.:format)     categories#show
-    add_item_cart POST   /cart/add_item(.:format)      carts#add_item
-
-remove_item_cart POST /cart/remove_item(.:format) carts#remove_item
-cart GET /cart(.:format) carts#show
-orders POST /orders(.:format) orders#create
-order GET /orders/:id(.:format) orders#show
-admin_root GET /admin(.:format) admin/dashboard#show
-admin_products GET /admin/products(.:format) admin/products#index
-POST /admin/products(.:format) admin/products#create
-new_admin_product GET /admin/products/new(.:format) admin/products#new
-admin_product DELETE /admin/products/:id(.:format) admin/products#destroy
-
-https://dashboard.stripe.com/test/dashboard
-
-Use Credit Card # 4111 1111 1111 1111 for testing success scenarios.
-
-future date 12/22
-any 3 number key 111, 123
-
-# rspec-rails
-
-https://github.com/rspec/rspec-rails
-
-Gemfile
-
-```
-group :development, :test do
-  gem 'rspec-rails', '~> 3.5'
-  # ...
-end
-```
-
-`bundle # aka bundle install`
-
-///////////////////////////////////////////////////
-
-# Jungle
-
-A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
-
-## Additional Steps for Apple M1 Machines
-
-1. Make sure that you are runnning Ruby 2.6.6 (`ruby -v`)
-1. Install ImageMagick `brew install imagemagick imagemagick@6 --build-from-source`
-1. Remove Gemfile.lock
-1. Replace Gemfile with version provided [here](https://gist.githubusercontent.com/FrancisBourgouin/831795ae12c4704687a0c2496d91a727/raw/ce8e2104f725f43e56650d404169c7b11c33a5c5/Gemfile)
+![Mobile](/docs/mobile.png)
 
 ## Setup
 
-1. Run `bundle install` to install dependencies
-2. Create `config/database.yml` by copying `config/database.example.yml`
-3. Create `config/secrets.yml` by copying `config/secrets.example.yml`
-4. Run `bin/rake db:reset` to create, load and seed db
-5. Create .env file based on .env.example
-6. Sign up for a Stripe account
-7. Put Stripe (test) keys into appropriate .env vars
-8. Run `bin/rails s -b 0.0.0.0` to start the server
+1. Install dependencies using the `bundle install` command.
+2. Set up database using the `bin/rake db:reset` command, load and seed db.
+3. Start the web server using the `bin/rails s -b 0.0.0.0` command. The app will be served at <http://localhost:3000/>.
 
-## Stripe Testing
+### Running Development Server
 
-Use Credit Card # 4111 1111 1111 1111 for testing success scenarios.
+Creat a DB such as jungle_development and jungle_test in the `config/database.yml`, `db/schema.rb` defines the schema of the database.
 
-More information in their docs: <https://stripe.com/docs/testing#cards>
+```sh
+bin/rails s -b 0.0.0.0
+```
+
+### Creating The DB
+
+```sh
+rake db:setup
+```
+
+```sh
+rake db:schema:load
+```
+
+This prints a table that defines all the different URL endpoints (ex: GET /cart) and where they map to (or are dispatched to)
+
+```sh
+bin/rake routes
+```
 
 ## Dependencies
 
-- Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
+Creat a `Gemfile` all dependencies set up.
+
+- ruby "2.3.5" [Rails Guide](http://guides.rubyonrails.org/v4.2/)
+- rails, 4.2.6
+- pg
+- sass-rails 5.0
+- uglifier 1.3.0
+- jquery-rails
+- turbolinks
+- jbuilder 2.0
+- sdoc 0.4.0
+- bcrypt 3.1.7
+- puma
+- bootstrap-sass 3.3.6
+- font-awesome-rails
+- money-rails
+- carrierwave
+- rmagick
+- stripe
+- faker
+- web-console 2.0
+- spring
+- byebug
+- quiet_assets
+- dotenv-rails
+- rspec-rails 3.5
+- capybara
+- poltergeist
+- database_cleaner
+- newrelic_rpm
+- rails_12factor
 - PostgreSQL 9.x
-- Stripe
+
+## Design
+
+- [Bootstrap v3.3.6](https://getbootstrap.com/docs/3.4/javascript/)
+- [font-awesome-rails-4.5.0.1](https://fontawesome.com/v4/icon/exclamation-triangle)
+
+## Stripe Testing
+
+### Use Credit Card for testing success scenarios.
+
+- 4111 1111 1111 1111
+- 12/22 (MM / YY, use future date)
+- 111 (CVC, any 3 number key)
+
+### More information in their docs:
+
+- <https://stripe.com/docs/testing#cards>
+- <https://dashboard.stripe.com/test/dashboard>
