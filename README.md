@@ -94,3 +94,15 @@ Creat a `Gemfile` all dependencies set up.
 
 - <https://stripe.com/docs/testing#cards>
 - <https://dashboard.stripe.com/test/dashboard>
+
+## RSpec Testing
+
+It has run successfully, saved a png image in the `tmp/capybara`
+
+- [Capybara Cheat Sheet](https://thoughtbot.com/upcase/test-driven-rails-resources/capybara.pdf)
+- [Cheatrags.com/capybara](http://cheatrags.com/capybara)
+- [RSpec with Capybara Example](https://github.com/DatabaseCleaner/database_cleaner#rspec-with-capybara-example)
+
+```
+bin/rspec
+```
